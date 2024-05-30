@@ -22,10 +22,10 @@ class _MapPageState extends State<MapPage> {
   String distance = '';
 
   @override
-  void initState() {
+  void initState() async {
     super.initState();
     _startListeningToLocation();
-    _loadGeoJsonData();
+    await _loadGeoJsonData();
   }
 
   void _startListeningToLocation() {
@@ -50,7 +50,8 @@ class _MapPageState extends State<MapPage> {
       List<Marker> markers = [];
       for (var feature in features) {
         final geometry = feature['geometry'];
-        if (geometry['type'] == 'Point') {
+        print(geometry);
+        if (geometry['type'] == 'MultiPolygon') {
           final coordinates = geometry['coordinates'];
           final point = LatLng(coordinates[1], coordinates[0]);
           markers.add(Marker(
