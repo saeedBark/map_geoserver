@@ -1,6 +1,6 @@
 # map_sig
 
-A new Flutter project.
+this project for map to select school and count distence 
 
 ## Getting Started
 
